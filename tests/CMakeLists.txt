@@ -13,6 +13,7 @@ include_directories(
     ${PROJECT_SOURCE_DIR}/${GOOGLETEST_ROOT}/include
     ../
     ../../External/include
+    ../../External/testing
     )
 
 set(GOOGLETEST_SOURCES
@@ -29,6 +30,8 @@ add_library(googletest ${GOOGLETEST_SOURCES})
 add_executable(
     Console_unit_tests
     main.cc
+    ConsoleTests.cc
+    ../Console.cpp
     )
 
 add_dependencies(Console_unit_tests googletest)
