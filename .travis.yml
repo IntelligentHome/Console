@@ -10,7 +10,7 @@ before_install:
         git checkout -b develop origin/develop;
         git status;
       fi'
-    - cd ../Nrf24l01_driver
+    - cd ../Console
     - echo ${TRAVIS_BRANCH}
 
 install:
