@@ -9,6 +9,21 @@ Console::Console(transport::ITransport& transport)
 {
 }
 
+Console& Console::print(const int8_t val) {
+
+    uint8_t send_data[3];
+    send_data[0] = val / 100;
+    send_data[1] = val / 10 - send_data[0] * 10;
+    send_data[2] = val - (send_data[0] * 10 + send_data[1]) * 10;
+
+    for (uint8_t i = 0; i < sizeof(send_data); i++)
+        send_data[i] += '0';
+
+    transport_.Send(send_data, sizeof(send_data));
+
+    return *this;
+}
+
 Console& Console::print(const char* str) {
 
     for(uint16_t i = 0; str[i] != 0; i++) {

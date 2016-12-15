@@ -11,6 +11,7 @@ public:
     Console(transport::ITransport& transport);
 
     Console& print(const char* str);
+    Console& print(const int8_t value);
     Console& newline(void);
 
 private:
