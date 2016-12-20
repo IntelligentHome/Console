@@ -1,10 +1,10 @@
 #include "gtest/gtest.h"
-#include "Console.h"
+#include "ConsoleAvr.h"
 #include "Mocks.h"
 
-namespace test_Console {
+namespace test_ConsoleAvr {
 
-TEST(Console, SendString) {
+TEST(ConsoleAvr, SendString) {
 
     uint8_t sent_data[200];
 
@@ -14,7 +14,7 @@ TEST(Console, SendString) {
 
     test_mocks::TransportMock mock_transport(sent_data, sizeof(sent_data));
 
-    console::Console console(mock_transport);
+    console_avr::ConsoleAvr console(mock_transport);
 
     memset(sent_data, 0, sizeof(sent_data));
     mock_transport.sent_data_idx_ = 0;
@@ -27,7 +27,7 @@ TEST(Console, SendString) {
                 << " at position: " << i << std::endl;
 }
 
-TEST(Console, SendStringAndNewLine) {
+TEST(ConsoleAvr, SendStringAndNewLine) {
 
     uint8_t sent_data[200];
 
@@ -38,7 +38,7 @@ TEST(Console, SendStringAndNewLine) {
 
     test_mocks::TransportMock mock_transport(sent_data, sizeof(sent_data));
 
-    console::Console console(mock_transport);
+    console_avr::ConsoleAvr console(mock_transport);
 
     memset(sent_data, 0, sizeof(sent_data));
     mock_transport.sent_data_idx_ = 0;
@@ -54,4 +54,4 @@ TEST(Console, SendStringAndNewLine) {
                 << " at position: " << i << std::endl;
 }
 
-} /* namespace test_Console */
+} /* namespace test_ConsoleAvr */
