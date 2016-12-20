@@ -30,8 +30,8 @@ add_library(googletest ${GOOGLETEST_SOURCES})
 add_executable(
     Console_unit_tests
     main.cc
-    ConsoleTests.cc
-    ../Console.cpp
+    ConsoleAvrTests.cc
+    ../ConsoleAvr.cpp
     )
 
 add_dependencies(Console_unit_tests googletest)

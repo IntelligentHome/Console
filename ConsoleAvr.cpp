@@ -1,15 +1,15 @@
 
-#include "Console.h"
+#include "ConsoleAvr.h"
 
-namespace console {
+namespace console_avr {
 
-Console::Console(transport::ITransport& transport)
+ConsoleAvr::ConsoleAvr(transport::ITransport& transport)
     :
         transport_(transport)
 {
 }
 
-Console& Console::print(const int8_t val) {
+iconsole::IConsole& ConsoleAvr::print(const int8_t val) {
 
     uint8_t send_data[3];
     send_data[0] = val / 100;
@@ -24,7 +24,7 @@ Console& Console::print(const int8_t val) {
     return *this;
 }
 
-Console& Console::print(const char* str) {
+iconsole::IConsole& ConsoleAvr::print(const char* str) {
 
     for(uint16_t i = 0; str[i] != 0; i++) {
         uint8_t data = static_cast<uint8_t>(str[i]);
@@ -34,7 +34,7 @@ Console& Console::print(const char* str) {
     return *this;
 }
 
-Console& Console::newline(void) {
+iconsole::IConsole& ConsoleAvr::newline(void) {
 
     uint8_t new_line[] = { 13, 10 };
 
