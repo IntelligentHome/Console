@@ -9,7 +9,7 @@ iconsole::IConsole& ConsoleRpi::print(const char* str) {
     return *this;
 }
 
-iconsole::IConsole& ConsoleRpi::print(const int8_t value) {
+iconsole::IConsole& ConsoleRpi::print(const uint8_t value) {
 
     std::cout << (int)value;
     return *this;

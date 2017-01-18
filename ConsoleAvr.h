@@ -12,7 +12,7 @@ public:
     ConsoleAvr(transport::ITransport& transport);
 
     virtual iconsole::IConsole& print(const char* str);
-    virtual iconsole::IConsole& print(const int8_t value);
+    virtual iconsole::IConsole& print(const uint8_t value);
     virtual iconsole::IConsole& newline(void);
 
 private:

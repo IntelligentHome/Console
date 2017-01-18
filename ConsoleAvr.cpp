@@ -9,7 +9,7 @@ ConsoleAvr::ConsoleAvr(transport::ITransport& transport)
 {
 }
 
-iconsole::IConsole& ConsoleAvr::print(const int8_t val) {
+iconsole::IConsole& ConsoleAvr::print(const uint8_t val) {
 
     uint8_t send_data[3];
     send_data[0] = val / 100;
